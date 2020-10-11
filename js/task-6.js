@@ -7,12 +7,14 @@ const validationInput = document.querySelector('#validation-input');
 const validationInputLength = function(event) {
     const targetRef =  event.currentTarget;
     if (targetRef.value.length === Number(targetRef.dataset.length)) {
+        targetRef.classList.remove('invalid');
         targetRef.classList.add('valid');
     } else {
+        targetRef.classList.remove('valid');
         targetRef.classList.add('invalid');
     }
 };
-validationInput.addEventListener('focus', function(event) {
+/*validationInput.addEventListener('focus', function(event) {
     event.currentTarget.classList.remove('invalid', 'valid');
-});
+});*/
 validationInput.addEventListener('blur', validationInputLength);

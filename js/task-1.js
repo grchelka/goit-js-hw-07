@@ -6,10 +6,19 @@
 const elements = document.querySelectorAll('li.item');
 console.log(`В списке ${elements.length} категории`);
 
-for (let i = 0; i < elements.length; i++) {
+/*for (let i = 0; i < elements.length; i++) {
   const category = elements[i].querySelector('h2');
   const numberOfElements = elements[i].querySelectorAll('li').length;
 
   console.log(`Категория: ${category.textContent}`);
   console.log(`Количество элементов: ${numberOfElements}`);
-}
+}*/
+
+
+  elements.forEach(function(element) {
+    const category = element.querySelector('h2');
+    const numberOfElements = element.querySelectorAll('li').length;
+
+    console.log(`Категория: ${category.textContent}`);
+    console.log(`Количество элементов: ${numberOfElements}`);
+  });

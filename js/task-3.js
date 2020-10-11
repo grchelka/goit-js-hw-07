@@ -23,7 +23,16 @@ const images = [
     },
   ];
 
-const gallery = document.getElementById('gallery');
-for (let i = 0; i < images.length; i++) {
+/*for (let i = 0; i < images.length; i++) {
   gallery.insertAdjacentHTML(`afterbegin`, `<li><img src='${images[i].url}' alt='${images[i].alt}' width='400' height='300'/></li>`);
-}
+} */
+
+const gallery = document.getElementById('gallery');
+//const t0 = performance.now();
+gallery.insertAdjacentHTML('afterbegin', 
+  images.reduce(function (acc, currentValue) {
+    return acc + `<li><img src='${currentValue.url}' alt='${currentValue.alt}' width='400' height='300'/></li>`;
+  }, '')
+);
+//const t1 = performance.now();
+//console.log(`${t1 - t0} milliseconds.`);
